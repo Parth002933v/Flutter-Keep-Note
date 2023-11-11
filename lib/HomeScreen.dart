@@ -34,9 +34,6 @@ class HomeScreen extends ConsumerWidget {
       },
       child: Scaffold(
         key: drawerkey,
-        backgroundColor: isDarkMode
-            ? DarkThemeData.primaryBackgroundColor
-            : LightThemeData.primaryBackgroundColor,
         body: SafeArea(
           child: Consumer(
             builder: (context, ref, _) {
@@ -44,10 +41,11 @@ class HomeScreen extends ConsumerWidget {
 
               return AnimatedSwitcher(
                 duration: const Duration(milliseconds: 400),
-                // Customize the animation curve when transitioning in
+
+                /// Customize the animation curve when transitioning in
                 switchInCurve: Curves.easeInOut,
 
-                // Customize the animation curve when transitioning out
+                /// Customize the animation curve when transitioning out
                 switchOutCurve: Curves.easeInOut,
 
                 transitionBuilder: (child, animation) {

@@ -7,12 +7,6 @@ class MyDateUtils {
     final date = timestamp.toDate();
 
     print(date);
-
-    // if(date == DateTime.no)
-    //   {
-    //
-    //   }
-
     return date.toString();
   }
 
@@ -33,7 +27,7 @@ class MyDateUtils {
       // return 'Yesterday ${DateFormat.jm().format(getTime)}'; // Format time with AM/PM
       return formatDate(getTime, ["Yesterday", ", ", h, ":", nn, " ", am]);
     } else {
-      // Display date and month
+      /// Display date and month
       return formatDate(getTime, [d, " ", M]);
     }
   }

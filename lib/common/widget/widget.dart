@@ -6,6 +6,7 @@ import 'package:flutter_note_taker/common/utils/Routes/routes.dart';
 import 'package:flutter_note_taker/common/utils/enums/enums.dart';
 import 'package:flutter_note_taker/common/utils/helper/helper.dart';
 import 'package:flutter_note_taker/common/utils/imageUtils/image_util.dart';
+import 'package:flutter_note_taker/common/utils/theme/is_dark_theme.dart';
 import 'package:flutter_note_taker/common/utils/theme/theme_data.dart';
 import 'package:flutter_note_taker/common/utils/theme/top_bottom_bar_theme.dart';
 import 'package:flutter_note_taker/common/widget/text_widget.dart';
@@ -19,14 +20,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class AppBarContent extends ConsumerWidget {
   const AppBarContent({
     super.key,
-    required this.isDarkMode,
+
     required this.defaultAppBar,
   });
 
-  final bool isDarkMode;
+
   final Widget defaultAppBar;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final isDarkMode = ThemeGetter.isDarkTheme(context);
+
     final appBarContent = ref.watch(appBarContentProvider);
 
     if (appBarContent.isSelected) {

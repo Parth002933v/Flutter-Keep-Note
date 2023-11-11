@@ -2,12 +2,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_note_taker/common/utils/Routes/routes.dart';
 import 'package:flutter_note_taker/common/utils/helper/helper.dart';
+import 'package:flutter_note_taker/common/utils/theme/theme_data.dart';
 import 'package:flutter_note_taker/firebase_options.dart';
 import 'package:flutter_note_taker/HomeScreen.dart';
 import 'package:flutter_note_taker/pages/add_note/add_note.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'common/utils/imageUtils/image_util.dart';
 
 Future<void> main() async {
@@ -99,8 +99,15 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        darkTheme: ThemeData.dark(useMaterial3: true),
-        theme: ThemeData.light(useMaterial3: true),
+        darkTheme: ThemeData.dark(useMaterial3: true).copyWith(
+          scaffoldBackgroundColor: DarkThemeData.primaryBackgroundColor,
+          drawerTheme: DrawerThemeData(
+            backgroundColor: DarkThemeData.drawerBackgroundColor,
+          ),
+        ),
+        theme: ThemeData.light(useMaterial3: true).copyWith(
+          scaffoldBackgroundColor: LightThemeData.primaryBackgroundColor,
+        ),
         themeMode: ThemeMode.system,
         initialRoute: "/",
         routes: {

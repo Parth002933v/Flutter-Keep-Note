@@ -17,7 +17,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: isDarkMode ? DarkThemeData.drawerBackgroundColor : null,
+      // backgroundColor: isDarkMode ?   DarkThemeData.drawerBackgroundColor : null,
       child: SingleChildScrollView(
         padding: EdgeInsets.only(top: 20.h),
         child: Column(

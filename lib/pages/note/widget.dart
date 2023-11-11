@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_note_taker/HomeScreen.dart';
+import 'package:flutter_note_taker/HomeScreen.dart';
+import 'package:flutter_note_taker/HomeScreen.dart';
 import 'package:flutter_note_taker/common/APIs/apis.dart';
 import 'package:flutter_note_taker/common/model/note_model.dart';
 import 'package:flutter_note_taker/common/utils/Heros/heros.dart';
 import 'package:flutter_note_taker/common/utils/Routes/routes.dart';
+import 'package:flutter_note_taker/common/utils/theme/is_dark_theme.dart';
 import 'package:flutter_note_taker/common/widget/text_widget.dart';
 import 'package:flutter_note_taker/common/widget/widget.dart';
 import 'package:flutter_note_taker/pages/add_note/notifire/add_note_notifire.dart';
@@ -11,6 +14,7 @@ import 'package:flutter_note_taker/pages/note/notifire/note_notifire.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import '../../HomeScreen.dart';
 import '../../common/utils/theme/theme_data.dart';
 
 ///-----------------------------------------------------------------------------
@@ -44,15 +48,15 @@ class CurveClipper extends CustomClipper<Path> {
 class AllNotes extends ConsumerWidget {
   const AllNotes({
     super.key,
-    required this.isDarkMode,
-    // required this.fetchedNote,
   });
 
-  final bool isDarkMode;
-  // final AsyncValue<QuerySnapshot<Map<String, dynamic>>> fetchedNote;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final isDarkMode = ThemeGetter.isDarkTheme(context);
+
+
+
     final isLandscape = MediaQuery.of(context).size.width > 450;
 
     final fetchedNote = ref.watch(APIs.notesStreamProvider);

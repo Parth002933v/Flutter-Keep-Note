@@ -27,7 +27,6 @@ class ArchiveScreen extends ConsumerWidget {
         child: ListView(
           children: [
             AppBarContent(
-              isDarkMode: isDarkMode,
               defaultAppBar:
                   defaultArchiveAppBar(ref: ref, isDarkMode: isDarkMode),
             ),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_note_taker/common/APIs/apis.dart';
 import 'package:flutter_note_taker/common/utils/theme/is_dark_theme.dart';
-import 'package:flutter_note_taker/common/utils/theme/top_bottom_bar_theme.dart';
 import 'package:flutter_note_taker/common/widget/widget.dart';
 import 'package:flutter_note_taker/pages/note/widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,14 +23,13 @@ class NoteScreen extends ConsumerWidget {
           child: ListView(
             padding: EdgeInsets.only(bottom: 40.h),
             children: [
-              // search
+              /// Appbar
               AppBarContent(
-                isDarkMode: isDarkMode,
                 defaultAppBar:
                     defaultSearchBar(ref: ref, isDarkMode: isDarkMode),
               ),
 
-              AllNotes(isDarkMode: isDarkMode),
+              const AllNotes(),
             ],
           ),
         ),
